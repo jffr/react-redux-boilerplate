@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import Counter from './Counter';
 import { connect } from 'react-redux';
+import Counter from './Counter';
 import { AppState } from '../../store';
 import { increment, decrement } from '../../store/counter/actions';
 
@@ -11,13 +11,12 @@ type TProps = {
   decrement: typeof decrement
 };
 
-const CounterContainer: FC<TProps> = (props) => {
-  return (
-    <>
-      <Counter value={props.counter} {...props} />
-    </>
-  );
-};
+const CounterContainer: FC<TProps> = (props) => (
+  <Counter
+    value={props.counter}
+    {...props}
+  />
+);
 
 const mapStateToProps = (state: AppState) => ({
   counter: state.counter.counter,
